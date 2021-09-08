@@ -1,6 +1,6 @@
 # ArcDPS Unofficial Extras
 Provides arcdps addons with additional information arcdps does not provide, namely:
-- When player leave or join the party/squad
+- When players leave or join the party/squad
 - What role a player has in the squad
 - What subgroup a player is in
 - If the player is ready or not (in a squad ready check)
