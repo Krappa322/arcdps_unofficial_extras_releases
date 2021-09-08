@@ -31,7 +31,7 @@ Please report issues and requests using the github issue tracker, or on the [Eli
 ## For Developers
 Check out the Definitions.h header file included in every release, it should contain all the information needed in order to integrate your addon with unofficial_extras.
 
-## Copyright
+## Copyright Notice
 This project makes use of the following third party libraries (they are all statically linked):
 ### arcdps-extension
 [arcdps-extension](https://github.com/knoxfighter/arcdps-extension), licensed under the MIT license.
