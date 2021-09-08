@@ -31,15 +31,15 @@ Please report issues and requests using the github issue tracker, or on the [Eli
 ## For Developers
 Check out the Definitions.h header file included in every release, it should contain all the information needed in order to integrate your addon with unofficial_extras.
 
-## LICENSE
-This project is licensed under the MIT license (see the LICENSE file for more details). It makes use of the following third party libraries (they are all statically linked):
+## Copyright
+This project makes use of the following third party libraries (they are all statically linked):
 ### arcdps-extension
-[arcdps-extension](https://github.com/knoxfighter/arcdps-extension), licensed under the MIT license and included in this project as a git submodule of [arcdps_mock](/arcdps_mock).
+[arcdps-extension](https://github.com/knoxfighter/arcdps-extension), licensed under the MIT license.
 ### Dear ImGui
-[Dear ImGui](https://github.com/ocornut/imgui), licensed under the MIT license and included in this project as a git submodule [imgui](/imgui).
+[Dear ImGui](https://github.com/ocornut/imgui), licensed under the MIT license.
 ### GoogleTest
-[GoogleTest](https://github.com/google/googletest), licensed under the BSD-3-Clause license and included in this project as a linking/header dependency (provided through vcpkg or linux package manager).
+[GoogleTest](https://github.com/google/googletest), licensed under the BSD-3-Clause license.
 ### JSON for Modern C++
-[JSON for Modern C++](https://github.com/nlohmann/json), licensed under the MIT license and included in this project as a single header file [json.hpp](/json/json.hpp).
+[JSON for Modern C++](https://github.com/nlohmann/json), licensed under the MIT license.
 ### spdlog
-[spdlog](https://github.com/gabime/spdlog), licensed under the MIT license and included in this project as a directory [spdlog](/spdlog).
+[spdlog](https://github.com/gabime/spdlog), licensed under the MIT license.
