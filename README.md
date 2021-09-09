@@ -26,7 +26,7 @@ Currently no additional info is provided by the addon itself when it's working. 
 unofficial_extras is currently closed source. This in compliance with requests made by Guild Wars 2 community managers, who have requested for similar addons (that read runtime data from the GW2 executable) to be closed source.
 
 ## Issues and requests
-Please report issues and requests using the github issue tracker, or on the [Elite Insights Discord](https://discord.gg/RaZ5myp)
+Please report issues and requests using the github issue tracker, or on the [Elite Insights Discord](https://discord.gg/T4kSbKJ5Sf)
 
 ## For Developers
 Check out the Definitions.h header file included in every release, it should contain all the information needed in order to integrate your addon with unofficial_extras.
