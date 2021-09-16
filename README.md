@@ -20,7 +20,7 @@ Requires [ArcDPS](https://www.deltaconnected.com/arcdps/).
 Download the latest [arcdps_unofficial_extras.dll](https://github.com/Krappa322/arcdps_unofficial_extras_releases/releases/latest) from the Releases page. Drag and drop arcdps_unofficial_extras.dll into the bin64\ directory (same directory as where arcdps d3d9.dll is)
 
 ## Usage
-Currently no additional info is provided by the addon itself when it's working. Check addons that integrate with unofficial_extras to know if it's functioning as expected.
+If installed correctly, you should see an "Unoffical Extras Options" menu where auto-updating can be configured. Addons that integrate with unofficial_extras should automatically start working, no additional configuration required.
 
 ## Source Code
 unofficial_extras is currently closed source. This in compliance with requests made by Guild Wars 2 community managers, who have requested for similar addons (that read runtime data from the GW2 executable) to be closed source.
