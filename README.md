@@ -1,5 +1,5 @@
 # ArcDPS Unofficial Extras
-Provides arcdps addons with additional information arcdps does not provide, namely:
+This addon does nothing on its own. Instead, it provides other installed arcdps addons with additional information arcdps does not provide, namely:
 - When players leave or join the party/squad
 - What role a player has in the squad
 - What subgroup a player is in
