@@ -46,6 +46,15 @@ struct UserInfo
 	}
 };
 
+enum class Language
+{
+	English = 0,
+	French = 2,
+	German = 3,
+	Spanish = 4,
+	Chinese = 5
+};
+
 struct ExtrasAddonInfo
 {
 	// Version of the api, gets incremented whenever a function signature or behavior changes in a breaking way.
@@ -63,6 +72,7 @@ struct ExtrasAddonInfo
 };
 
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
+typedef void (*LanguageChangedCallbackSignature)(Language newLanguage);
 struct ExtrasSubscriberInfo
 {
 	// Null terminated name of the addon subscribing to the changes. Must be valid for the lifetime of the subcribing addon. Set to
@@ -72,6 +82,10 @@ struct ExtrasSubscriberInfo
 	// Called whenever anything in the squad changes. Only the users that changed are sent. If a user is removed from
 	// the squad, it will be sent with Role == UserRole::None
 	SquadUpdateCallbackSignature SquadUpdateCallback = nullptr;
+
+	// Called whenever the language is changed. Either by Changing it in the UI or by pressing the Right Ctrl (default) key.
+	// Will also be called directly after initialization, with the current language, to get the startup language.
+	LanguageChangedCallbackSignature LanguageChangedCallback = nullptr;
 };
 
 // This function must be exported by subscriber addons as 'arcdps_unofficial_extras_subscriber_init'. It's called once
