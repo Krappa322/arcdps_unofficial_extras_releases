@@ -1273,6 +1273,10 @@ void addModifier(std::stringstream& str, KeyBinds::Modifier mod, Language lang)
 
 std::string to_string(KeyBinds::KeyControl keyControl, Language lang)
 {
+	if (lang == Language::Chinese) 
+	{
+		return "";
+	}
 	return translations.at(lang).keyControls.at(keyControl);
 }
 
@@ -1315,6 +1319,11 @@ std::string to_string(KeyBinds::Key keyBind, Language lang, HKL keyboardLayout, 
 
 std::string to_string(KeyBinds::KeyCode keyCode, Language lang, HKL keyboardLayout)
 {
+	if (lang == Language::Chinese) 
+	{
+		return "";
+	}
+
 	using KeyBinds::KeyCode;
 	if ((keyCode >= KeyCode::A && keyCode <= KeyCode::Z) || (keyCode >= KeyCode::_0 && keyCode <= KeyCode::_9))
 	{
@@ -1341,6 +1350,11 @@ std::string to_string(KeyBinds::KeyCode keyCode, Language lang, HKL keyboardLayo
 
 std::string to_string(KeyBinds::MouseCode mouseCode, Language lang)
 {
+	if (lang == Language::Chinese) 
+	{
+		return "";
+	}
+
 	using KeyBinds::MouseCode;
 	int32_t key = static_cast<int32_t>(mouseCode);
 	std::stringstream res("");
