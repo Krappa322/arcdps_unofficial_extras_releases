@@ -1,10 +1,10 @@
 #pragma once
 
-#include <string>
-#include <Windows.h>
-
 #include "Definitions.h"
 #include "KeyBindStructs.h"
+
+#include <string>
+#include <Windows.h>
 
 std::string to_string(KeyBinds::KeyControl keyControl, Language lang);
 

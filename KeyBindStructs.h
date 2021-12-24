@@ -1,8 +1,5 @@
 #pragma once
 
-#pragma push_macro("DELETE")
-#undef DELETE
-
 namespace KeyBinds
 {
 	enum class KeyControl : int32_t
@@ -198,38 +195,38 @@ namespace KeyBinds
 	// Site to translate it to other languages: http://kbdlayout.info
 	enum class KeyCode : int32_t
 	{
-		LEFT_ALT = 0,
-		LEFT_CTRL = 1,
-		LEFT_SHIFT = 2,
-		QUOTE = 3,
-		HASH = 4,
-		CAPS_LOCK = 5,
-		COLON = 6,
-		MINUS = 7,
-		EQUALS = 8,
-		ESCAPE = 9,
-		OPEN_BRACKET = 10,
-		NUM_LOCK = 11,
-		PERIOD = 12,
-		CLOSE_BRACKET = 13,
-		SEMICOLON = 14,
-		SLASH = 15,
-		PRINT = 16,
-		TILDE = 17,
-		BACKSPACE = 18,
-		DELETE = 19,
-		ENTER = 20,
-		SPACE = 21,
-		TAB = 22,
-		END = 23,
-		HOME = 24,
-		INSERT = 25,
-		NEXT = 26,
-		PRIOR = 27,
-		ARROW_DOWN = 28,
-		ARROW_LEFT = 29,
-		ARROW_RIGHT = 30,
-		ARROW_UP = 31,
+		LeftAlt = 0,
+		LeftCtrl = 1,
+		LeftShift = 2,
+		Quote = 3,
+		Hash = 4,
+		CapsLock = 5,
+		Colon = 6,
+		Minus = 7,
+		Equals = 8,
+		Escape = 9,
+		OpenBracket = 10,
+		NumLock = 11,
+		Period = 12,
+		CloseBracket = 13,
+		Semicolon = 14,
+		Slash = 15,
+		Print = 16,
+		Tilde = 17,
+		Backspace = 18,
+		Delete = 19,
+		Enter = 20,
+		Space = 21,
+		Tab = 22,
+		End = 23,
+		Home = 24,
+		Insert = 25,
+		Next = 26,
+		Prior = 27,
+		ArrowDown = 28,
+		ArrowLeft = 29,
+		ArrowRight = 30,
+		ArrowUp = 31,
 		F1 = 32,
 		F2 = 33,
 		F3 = 34,
@@ -278,10 +275,10 @@ namespace KeyBinds
 		X = 88,
 		Y = 89,
 		Z = 90,
-		PLUS_NUM = 91,
-		DECIMAL_NUM = 92,
-		DIVIDE_NUM = 93,
-		MULTIPLY_NUM = 94,
+		PlusNum = 91,
+		DecimalNum = 92,
+		DivideNum = 93,
+		MultiplyNum = 94,
 		_0_NUM = 95,
 		_1_NUM = 96,
 		_2_NUM = 97,
@@ -292,13 +289,13 @@ namespace KeyBinds
 		_7_NUM = 102,
 		_8_NUM = 103,
 		_9_NUM = 104,
-		ENTER_NUM = 105,
-		MINUS_NUM = 106,
-		IME_Key_1 = 107,
-		IME_Key_2 = 108,
-		RIGHT_ALT = 109,
-		RIGHT_CTRL = 110,
-		BACKSLASH = 111,
+		EnterNum = 105,
+		MinusNum = 106,
+		ImeKey1 = 107,
+		ImeKey2 = 108,
+		RightAlt = 109,
+		RightCtrl = 110,
+		Backslash = 111,
 		F13 = 112,
 		F14 = 113,
 		F15 = 114,
@@ -322,13 +319,13 @@ namespace KeyBinds
 		F33 = 132,
 		F34 = 133,
 		F35 = 134,
-		RIGHT_SHIFT = 135,
-		EJECT = 136,
-		EQUAL_NUM = 137,
-		CLEAR_NUM = 138,
-		LEFT_CMD = 139,
-		FUNCTION = 140,
-		RIGHT_CMD = 141
+		RightShift = 135,
+		Eject = 136,
+		EqualNum = 137,
+		ClearNum = 138,
+		LeftCmd = 139,
+		Function = 140,
+		RightCmd = 141
 	};
 	constexpr int32_t KeyCodesSize = 131;
 
@@ -359,9 +356,9 @@ namespace KeyBinds
 
 	enum class DeviceType : int32_t
 	{
-		UNSET = 0,
-		MOUSE = 1,
-		KEYBOARD = 2
+		Unset = 0,
+		Mouse = 1,
+		Keyboard = 2
 	};
 	constexpr int32_t DeviceTypeSize = 3;
 
@@ -387,5 +384,3 @@ namespace KeyBinds
 		Key right;
 	};
 }
-
-#pragma pop_macro("DELETE")
