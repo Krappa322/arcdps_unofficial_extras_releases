@@ -1,5 +1,11 @@
 #pragma once
 
+#if ARCDPS_UNOFFICIAL_EXTRAS_EXPORTS 
+#define ARCDPS_UNOFFICIAL_EXTRAS_API __declspec(dllexport)
+#else
+#define ARCDPS_UNOFFICIAL_EXTRAS_API __declspec(dllimport)
+#endif
+
 namespace KeyBinds
 {
 	enum class KeyControl : int32_t
@@ -384,3 +390,6 @@ namespace KeyBinds
 		Key right;
 	};
 }
+
+extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl control, uint32_t second = false);
+extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl control);
