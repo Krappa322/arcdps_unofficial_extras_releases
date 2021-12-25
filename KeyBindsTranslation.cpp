@@ -11,27 +11,29 @@ struct Translation
 	using KeysMap = std::unordered_map<KeyCode, const char*>;
 	using KeyControlsMap = std::unordered_map<KeyBinds::KeyControl, const char*>;
 
-	ModifierMap modifier;
-	KeysMap keys;
-	KeyControlsMap keyControls;
-	const char* mouse;
-	const char* notSet;
+	ModifierMap Modifier;
+	KeysMap Keys;
+	KeyControlsMap KeyControls;
+	const char* Mouse;
+	const char* NotSet;
 
-	Translation(){}
-	Translation(const char* new_mouse, const char* new_notSet, std::initializer_list<ModifierMap::value_type> modifierInit, std::initializer_list<KeysMap::value_type> keysInit, std::initializer_list<KeyControlsMap::value_type> keyControlsInit) :
-		mouse(new_mouse), notSet(new_notSet), modifier(modifierInit), keys(keysInit), keyControls(keyControlsInit) {}
+	Translation() {}
+
+	Translation(const char* new_mouse, const char* new_notSet, std::initializer_list<ModifierMap::value_type> modifierInit,
+	            std::initializer_list<KeysMap::value_type> keysInit, std::initializer_list<KeyControlsMap::value_type> keyControlsInit) :
+		Mouse(new_mouse), NotSet(new_notSet), Modifier(modifierInit), Keys(keysInit), KeyControls(keyControlsInit) {}
 };
 
-static const std::unordered_map<Language, Translation> translations = {
+static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 	{
 		Language::English, {
 			"Mouse",
 			"(unset)",
 			// modifier
 			{
-				{KeyBinds::Modifier_CTRL, "Ctrl"},
-				{KeyBinds::Modifier_ALT, "Shift"},
-				{KeyBinds::Modifier_SHIFT, "Shift"},
+				{KeyBinds::Modifier_Ctrl, "Ctrl"},
+				{KeyBinds::Modifier_Alt, "Shift"},
+				{KeyBinds::Modifier_Shift, "Shift"},
 			},
 			// keys
 			{
@@ -282,9 +284,9 @@ static const std::unordered_map<Language, Translation> translations = {
 			"(Non défini)",
 			// modifier
 			{
-				{KeyBinds::Modifier_CTRL, "Ctrl"},
-				{KeyBinds::Modifier_ALT, "Alt"},
-				{KeyBinds::Modifier_SHIFT, "Majuscule"},
+				{KeyBinds::Modifier_Ctrl, "Ctrl"},
+				{KeyBinds::Modifier_Alt, "Alt"},
+				{KeyBinds::Modifier_Shift, "Majuscule"},
 			},
 			// keys
 			{
@@ -535,9 +537,9 @@ static const std::unordered_map<Language, Translation> translations = {
 			"(Nicht belegt)",
 			// modifier
 			{
-				{KeyBinds::Modifier_CTRL, "Strg"},
-				{KeyBinds::Modifier_ALT, "Alt"},
-				{KeyBinds::Modifier_SHIFT, "Umschalttaste"},
+				{KeyBinds::Modifier_Ctrl, "Strg"},
+				{KeyBinds::Modifier_Alt, "Alt"},
+				{KeyBinds::Modifier_Shift, "Umschalttaste"},
 			},
 			// keys
 			{
@@ -788,9 +790,9 @@ static const std::unordered_map<Language, Translation> translations = {
 			"(No configurado)",
 			// modifier
 			{
-				{KeyBinds::Modifier_CTRL, "Ctrl"},
-				{KeyBinds::Modifier_ALT, "Alt"},
-				{KeyBinds::Modifier_SHIFT, "Mayús"},
+				{KeyBinds::Modifier_Ctrl, "Ctrl"},
+				{KeyBinds::Modifier_Alt, "Alt"},
+				{KeyBinds::Modifier_Shift, "Mayús"},
 			},
 			// keys
 			{
@@ -1037,7 +1039,7 @@ static const std::unordered_map<Language, Translation> translations = {
 	}
 };
 
-static const std::unordered_map<UINT, KeyCode> scanCodeToKeyCode = {
+static const std::unordered_map<UINT, KeyCode> SCAN_CODE_TO_KEY_CODE = {
 	{0x01, KeyCode::Escape},
 	{0x02, KeyCode::_1},
 	{0x03, KeyCode::_2},
@@ -1145,7 +1147,7 @@ static const std::unordered_map<UINT, KeyCode> scanCodeToKeyCode = {
 	// {0xE11D, KeyCode::PAUSE}, // not available in GW2!
 };
 
-static const std::unordered_map<KeyCode, UINT> keyCodeToScanCode = {
+static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
 	{KeyCode::Escape, 0x01},
 	{KeyCode::_1, 0x02},
 	{KeyCode::_2, 0x03},
@@ -1253,48 +1255,48 @@ static const std::unordered_map<KeyCode, UINT> keyCodeToScanCode = {
 	// {KeyCode::PAUSE, 0xE11D}, // not available in GW2!
 };
 
-void addModifier(std::stringstream& str, KeyBinds::Modifier mod, Language lang)
+void AddModifier(std::stringstream& pStr, KeyBinds::Modifier pMod, Language pLang)
 {
-	const auto& translation = translations.at(lang);
+	const auto& translation = TRANSLATIONS.at(pLang);
 
-	if (mod & KeyBinds::Modifier_CTRL) 
+	if (pMod & KeyBinds::Modifier_Ctrl)
 	{
-		str << translation.modifier.at(KeyBinds::Modifier_CTRL) << " + ";
+		pStr << translation.Modifier.at(KeyBinds::Modifier_Ctrl) << " + ";
 	}
-	if (mod & KeyBinds::Modifier_ALT) 
+	if (pMod & KeyBinds::Modifier_Alt)
 	{
-		str << translation.modifier.at(KeyBinds::Modifier_ALT) << " + ";
+		pStr << translation.Modifier.at(KeyBinds::Modifier_Alt) << " + ";
 	}
-	if (mod & KeyBinds::Modifier_SHIFT) 
+	if (pMod & KeyBinds::Modifier_Shift)
 	{
-		str << translation.modifier.at(KeyBinds::Modifier_SHIFT) << " + ";
+		pStr << translation.Modifier.at(KeyBinds::Modifier_Shift) << " + ";
 	}
 }
 
-std::string to_string(KeyBinds::KeyControl keyControl, Language lang)
+std::string to_string(KeyBinds::KeyControl pKeyControl, Language pLang)
 {
-	if (lang == Language::Chinese) 
+	if (pLang == Language::Chinese)
 	{
 		return "";
 	}
-	return translations.at(lang).keyControls.at(keyControl);
+	return TRANSLATIONS.at(pLang).KeyControls.at(pKeyControl);
 }
 
-std::string to_string(KeyBinds::Key keyBind, Language lang, HKL keyboardLayout, bool notSetText)
+std::string to_string(KeyBinds::Key pKeyBind, Language pLang, HKL pKeyboardLayout, bool pNotSetText)
 {
 	// no chinese translation provided
-	if (lang == Language::Chinese) 
+	if (pLang == Language::Chinese)
 	{
 		return "";
 	}
 
-	const auto& translation = translations.at(lang);
+	const auto& translation = TRANSLATIONS.at(pLang);
 
-	if (keyBind.deviceType == KeyBinds::DeviceType::Unset)
+	if (pKeyBind.DeviceType == KeyBinds::DeviceType::Unset)
 	{
-		if (notSetText) 
+		if (pNotSetText)
 		{
-			return translation.notSet;
+			return translation.NotSet;
 		}
 		return "";
 	}
@@ -1303,72 +1305,72 @@ std::string to_string(KeyBinds::Key keyBind, Language lang, HKL keyboardLayout, 
 
 	// modifier
 	// Strg + Alt + Umschalt
-	addModifier(res, keyBind.modifier, lang);
+	AddModifier(res, pKeyBind.Modifier, pLang);
 
-	if (keyBind.deviceType == KeyBinds::DeviceType::Keyboard)
+	if (pKeyBind.DeviceType == KeyBinds::DeviceType::Keyboard)
 	{
-		res << to_string(static_cast<KeyBinds::KeyCode>(keyBind.key), lang, keyboardLayout);
+		res << to_string(static_cast<KeyBinds::KeyCode>(pKeyBind.Code), pLang, pKeyboardLayout);
 	}
-	else if (keyBind.deviceType == KeyBinds::DeviceType::Mouse)
+	else if (pKeyBind.DeviceType == KeyBinds::DeviceType::Mouse)
 	{
-		res << to_string(static_cast<KeyBinds::MouseCode>(keyBind.key), lang);
+		res << to_string(static_cast<KeyBinds::MouseCode>(pKeyBind.Code), pLang);
 	}
 
 	return res.str();
 }
 
-std::string to_string(KeyBinds::KeyCode keyCode, Language lang, HKL keyboardLayout)
+std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardLayout)
 {
-	if (lang == Language::Chinese) 
+	if (pLang == Language::Chinese)
 	{
 		return "";
 	}
 
 	using KeyBinds::KeyCode;
-	if ((keyCode >= KeyCode::A && keyCode <= KeyCode::Z) || (keyCode >= KeyCode::_0 && keyCode <= KeyCode::_9))
+	if ((pKeyCode >= KeyCode::A && pKeyCode <= KeyCode::Z) || (pKeyCode >= KeyCode::_0 && pKeyCode <= KeyCode::_9))
 	{
-		return std::string(1, static_cast<char>(keyCode));
+		return std::string(1, static_cast<char>(pKeyCode));
 	}
 	// OEM keys (like Ä, Ö or #)
-	if (keyCode == KeyCode::Tilde || keyCode == KeyCode::Minus || keyCode == KeyCode::Equals || keyCode == KeyCode::OpenBracket
-		|| keyCode == KeyCode::CloseBracket || keyCode == KeyCode::Semicolon || keyCode == KeyCode::Quote || keyCode == KeyCode::Hash
-		|| keyCode == KeyCode::Backslash || keyCode == KeyCode::Colon || keyCode == KeyCode::Period || keyCode == KeyCode::Slash)
+	if (pKeyCode == KeyCode::Tilde || pKeyCode == KeyCode::Minus || pKeyCode == KeyCode::Equals || pKeyCode == KeyCode::OpenBracket
+		|| pKeyCode == KeyCode::CloseBracket || pKeyCode == KeyCode::Semicolon || pKeyCode == KeyCode::Quote || pKeyCode == KeyCode::Hash
+		|| pKeyCode == KeyCode::Backslash || pKeyCode == KeyCode::Colon || pKeyCode == KeyCode::Period || pKeyCode == KeyCode::Slash)
 	{
-		UINT scanCode = keyCodeToScanCode.at(keyCode);
+		UINT scanCode = KEY_CODE_TO_SCAN_CODE.at(pKeyCode);
 		wchar_t shortCutRealNameWstr[32];
-		UINT keyExW = MapVirtualKeyExW(scanCode, MAPVK_VSC_TO_VK_EX, keyboardLayout);
+		UINT keyExW = MapVirtualKeyExW(scanCode, MAPVK_VSC_TO_VK_EX, pKeyboardLayout);
 		byte keyState[256] = {};
-		ToUnicodeEx(keyExW, scanCode, keyState, shortCutRealNameWstr, 32, 0, keyboardLayout);
+		ToUnicodeEx(keyExW, scanCode, keyState, shortCutRealNameWstr, 32, 0, pKeyboardLayout);
 		char shortCutRealName[64];
 		WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, -1, shortCutRealName, 64, NULL, NULL);
 		return shortCutRealName;
 	}
 
 	// translated by hand!
-	return translations.at(lang).keys.at(keyCode);
+	return TRANSLATIONS.at(pLang).Keys.at(pKeyCode);
 }
 
-std::string to_string(KeyBinds::MouseCode mouseCode, Language lang)
+std::string to_string(KeyBinds::MouseCode pMouseCode, Language pLang)
 {
-	if (lang == Language::Chinese) 
+	if (pLang == Language::Chinese)
 	{
 		return "";
 	}
 
 	using KeyBinds::MouseCode;
-	int32_t key = static_cast<int32_t>(mouseCode);
+	int32_t key = static_cast<int32_t>(pMouseCode);
 	std::stringstream res("");
-	const auto& translation = translations.at(lang);
-	res << translation.mouse;
-	if (mouseCode == MouseCode::Mouse_2) 
+	const auto& translation = TRANSLATIONS.at(pLang);
+	res << translation.Mouse;
+	if (pMouseCode == MouseCode::Mouse_2)
 	{
 		res << key;
 	}
-	else if (mouseCode == MouseCode::Mouse_3) 
+	else if (pMouseCode == MouseCode::Mouse_3)
 	{
 		res << 1;
 	}
-	else 
+	else
 	{
 		res << key + 1;
 	}

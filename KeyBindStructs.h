@@ -193,7 +193,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate5 = 210,
 		Templates_EquipmentTemplate6 = 211
 	};
-	constexpr int32_t KeyBindsSize = 161;
+	constexpr int32_t KEY_BINDS_SIZE = 161;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
@@ -333,7 +333,7 @@ namespace KeyBinds
 		Function = 140,
 		RightCmd = 141
 	};
-	constexpr int32_t KeyCodesSize = 131;
+	constexpr int32_t KEY_CODES_SIZE = 131;
 
 	enum class MouseCode : int32_t
 	{
@@ -358,7 +358,7 @@ namespace KeyBinds
 		Mouse_19 = 18,
 		Mouse_20 = 19
 	};
-	constexpr int32_t MouseCodesSize = 20;
+	constexpr int32_t MOUSE_CODES_SIZE = 20;
 
 	enum class DeviceType : int32_t
 	{
@@ -366,30 +366,30 @@ namespace KeyBinds
 		Mouse = 1,
 		Keyboard = 2
 	};
-	constexpr int32_t DeviceTypeSize = 3;
+	constexpr int32_t DEVICE_TYPE_SIZE = 3;
 
 	enum Modifier_ : int32_t
 	{
-		Modifier_SHIFT = 1,
-		Modifier_CTRL = 2,
-		Modifier_ALT = 4
+		Modifier_Shift = 1,
+		Modifier_Ctrl = 2,
+		Modifier_Alt = 4
 	};
 	typedef int32_t Modifier; // -> enum Modifier_
 
 	// A single KeyBind
 	struct Key
 	{
-		DeviceType deviceType; /* 0|1|2 (0 = unset, 1 = MouseKey, 2 = KeyboardKey) */
-		int32_t key; // depends on `deviceType`. MouseCode
-		Modifier modifier; /* modifier flags (Bit 1 = Shift, Bit 2 = Strg, Bit 3 = Alt) */
+		DeviceType DeviceType; /** 0|1|2 (0 = unset, 1 = MouseKey, 2 = KeyboardKey) */
+		int32_t Code; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
+		Modifier Modifier; /** modifier flags (Bit 1 = Shift, Bit 2 = Strg, Bit 3 = Alt) */
 	};
 
 	struct KeyBind
 	{
-		Key left;
-		Key right;
+		Key Left;
+		Key Right;
 	};
 }
 
-extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl control, uint32_t second = false);
-extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl control);
+extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pSecond = false);
+extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);

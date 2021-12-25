@@ -72,7 +72,7 @@ struct ExtrasAddonInfo
 };
 
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
-typedef void (*LanguageChangedCallbackSignature)(Language newLanguage);
+typedef void (*LanguageChangedCallbackSignature)(Language pNewLanguage);
 struct ExtrasSubscriberInfo
 {
 	// Null terminated name of the addon subscribing to the changes. Must be valid for the lifetime of the subcribing addon. Set to
