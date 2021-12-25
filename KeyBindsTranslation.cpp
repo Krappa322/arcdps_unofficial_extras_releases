@@ -1279,7 +1279,14 @@ std::string to_string(KeyBinds::KeyControl pKeyControl, Language pLang)
 	{
 		return "";
 	}
-	return TRANSLATIONS.at(pLang).KeyControls.at(pKeyControl);
+
+	const auto& keyMap = TRANSLATIONS.at(pLang).KeyControls;
+	if (const auto& trans = keyMap.find(pKeyControl); trans != keyMap.end())
+	{
+		return trans->second;
+	}
+
+	return "";
 }
 
 std::string to_string(KeyBinds::Key pKeyBind, Language pLang, HKL pKeyboardLayout, bool pNotSetText)
@@ -1347,7 +1354,13 @@ std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardL
 	}
 
 	// translated by hand!
-	return TRANSLATIONS.at(pLang).Keys.at(pKeyCode);
+	const auto& keysMap = TRANSLATIONS.at(pLang).Keys;
+	if (const auto& trans = keysMap.find(pKeyCode); trans != keysMap.end())
+	{
+		return trans->second;
+	}
+
+	return "";
 }
 
 std::string to_string(KeyBinds::MouseCode pMouseCode, Language pLang)
