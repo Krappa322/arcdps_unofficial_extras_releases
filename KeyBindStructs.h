@@ -386,10 +386,11 @@ namespace KeyBinds
 
 	struct KeyBind
 	{
-		Key Left;
-		Key Right;
+		Key Primary;
+		Key Secondary;
 	};
 }
 
-extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pSecond = false);
+// pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
+extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
 extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);

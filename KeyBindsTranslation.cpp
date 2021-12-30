@@ -5,6 +5,8 @@
 
 using KeyBinds::KeyCode;
 
+namespace
+{
 struct Translation
 {
 	using ModifierMap = std::unordered_map<KeyBinds::Modifier, const char*>;
@@ -17,12 +19,19 @@ struct Translation
 	const char* Mouse;
 	const char* NotSet;
 
-	Translation() {}
-
-	Translation(const char* new_mouse, const char* new_notSet, std::initializer_list<ModifierMap::value_type> modifierInit,
-	            std::initializer_list<KeysMap::value_type> keysInit, std::initializer_list<KeyControlsMap::value_type> keyControlsInit) :
-		Mouse(new_mouse), NotSet(new_notSet), Modifier(modifierInit), Keys(keysInit), KeyControls(keyControlsInit) {}
+	Translation(
+		const char* pMouse,
+		const char* pNotSet,
+		std::initializer_list<ModifierMap::value_type> pModifier,
+		std::initializer_list<KeysMap::value_type> pKeys,
+		std::initializer_list<KeyControlsMap::value_type> pKeyControls)
+		: Mouse(pMouse)
+		, NotSet(pNotSet)
+		, Modifier(pModifier)
+		, Keys(pKeys)
+		, KeyControls(pKeyControls) {}
 };
+}; // anonymous namespace
 
 static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 	{
@@ -1349,7 +1358,7 @@ std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardL
 		byte keyState[256] = {};
 		ToUnicodeEx(keyExW, scanCode, keyState, shortCutRealNameWstr, 32, 0, pKeyboardLayout);
 		char shortCutRealName[64];
-		WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, -1, shortCutRealName, 64, NULL, NULL);
+		WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, -1, shortCutRealName, sizeof(shortCutRealName), NULL, NULL);
 		return shortCutRealName;
 	}
 

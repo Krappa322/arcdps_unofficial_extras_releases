@@ -46,7 +46,7 @@ struct UserInfo
 	}
 };
 
-enum class Language
+enum class Language : int32_t
 {
 	English = 0,
 	French = 2,
