@@ -1,5 +1,7 @@
 #pragma once
 
+#include "KeyBindStructs.h"
+
 #include <cstdint>
 #include <ctime>
 
@@ -73,6 +75,7 @@ struct ExtrasAddonInfo
 
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
 typedef void (*LanguageChangedCallbackSignature)(Language pNewLanguage);
+typedef void (*KeyBindChangedCallbackSignature)(KeyBinds::KeyBindChanged pKeyBindChange);
 struct ExtrasSubscriberInfo
 {
 	// Null terminated name of the addon subscribing to the changes. Must be valid for the lifetime of the subcribing addon. Set to
@@ -86,6 +89,10 @@ struct ExtrasSubscriberInfo
 	// Called whenever the language is changed. Either by Changing it in the UI or by pressing the Right Ctrl (default) key.
 	// Will also be called directly after initialization, with the current language, to get the startup language.
 	LanguageChangedCallbackSignature LanguageChangedCallback = nullptr;
+
+	// Called whenever a KeyBind is changed. Either by Changing it in the ingame UI or with the Presets feature of this plugin.
+	// It is called for every keyBind separately.
+	KeyBindChangedCallbackSignature KeyBindChangedCallback = nullptr;
 };
 
 // This function must be exported by subscriber addons as 'arcdps_unofficial_extras_subscriber_init'. It's called once

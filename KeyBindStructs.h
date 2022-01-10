@@ -1,10 +1,6 @@
 #pragma once
 
-#if ARCDPS_UNOFFICIAL_EXTRAS_EXPORTS 
-#define ARCDPS_UNOFFICIAL_EXTRAS_API __declspec(dllexport)
-#else
-#define ARCDPS_UNOFFICIAL_EXTRAS_API __declspec(dllimport)
-#endif
+#include <cstdint>
 
 namespace KeyBinds
 {
@@ -389,8 +385,15 @@ namespace KeyBinds
 		Key Primary;
 		Key Secondary;
 	};
+
+	struct KeyBindChanged
+	{
+		KeyControl KeyControl;
+		uint32_t KeyIndex;
+		Key SingleKey;
+	};
 }
 
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
-extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
-extern "C" ARCDPS_UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
+extern "C" __declspec(dllexport) KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
+extern "C" __declspec(dllexport) KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
