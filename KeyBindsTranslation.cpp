@@ -1,5 +1,6 @@
 #include "KeyBindsTranslation.h"
 
+#include <cassert>
 #include <sstream>
 #include <unordered_map>
 
@@ -41,7 +42,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 			// modifier
 			{
 				{KeyBinds::Modifier_Ctrl, "Ctrl"},
-				{KeyBinds::Modifier_Alt, "Shift"},
+				{KeyBinds::Modifier_Alt, "Alt"},
 				{KeyBinds::Modifier_Shift, "Shift"},
 			},
 			// keys
@@ -128,6 +129,11 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyCode::LeftCmd, "Left Cmd"},
 				{KeyCode::Function, "Function"},
 				{KeyCode::RightCmd, "Right Cmd"},
+				{KeyCode::Scroll, "Scroll"},
+				{KeyCode::Pause, "Pause"},
+				{KeyCode::LeftWin, "Left Windows"},
+				{KeyCode::RightWin, "Right Windows"},
+				{KeyCode::Menu, "Menu"}
 			},
 			// keyBinds
 			{
@@ -220,6 +226,14 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Mounts_MountDismount, "Mount/Dismount"},
 				{KeyBinds::KeyControl::Mounts_MountAbility1, "Mount Ability 1"},
 				{KeyBinds::KeyControl::Mounts_MountAbility2, "Mount Ability 2"},
+				{KeyBinds::KeyControl::Mounts_Raptor, "Raptor Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Springer, "Springer Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Skimmer, "Skimmer Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Jackal, "Jackal Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Griffon, "Griffon Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_RollerBeetle, "Roller Beetle Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Warclaw, "Warclaw Mount/Dismount"},
+				{KeyBinds::KeyControl::Mounts_Skyscale, "Skyscale Mount/Dismount"},
 				{KeyBinds::KeyControl::Spectators_NearestFixedCamera, "Nearest Fixed Camera"},
 				{KeyBinds::KeyControl::Spectators_NearestPlayer, "Nearest Player"},
 				{KeyBinds::KeyControl::Spectators_RedPlayer1, "Red Player 1"},
@@ -381,6 +395,11 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyCode::LeftCmd, "Cmd gaucge"},
 				{KeyCode::Function, "Fonction"},
 				{KeyCode::RightCmd, "Cmd droit"},
+				{KeyCode::Scroll, "Arrêt défil"},
+				{KeyCode::Pause, "Pause"},
+				{KeyCode::LeftWin, "Windows gauche"},
+				{KeyCode::RightWin, "Windows droit"},
+				{KeyCode::Menu, "Menu"}
 			},
 			// keyBinds
 			{
@@ -473,6 +492,14 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Mounts_MountDismount, "Monter / descrendre"},
 				{KeyBinds::KeyControl::Mounts_MountAbility1, "Capacité de monture 1"},
 				{KeyBinds::KeyControl::Mounts_MountAbility2, "Capacité de monture 2"},
+				{KeyBinds::KeyControl::Mounts_Raptor, "Montar/Descendre de raport"},
+				{KeyBinds::KeyControl::Mounts_Springer, "Montar/Descendre de frappesol"},
+				{KeyBinds::KeyControl::Mounts_Skimmer, "Montar/Descendre de voldécume"},
+				{KeyBinds::KeyControl::Mounts_Jackal, "Montar/Descendre de chacal"},
+				{KeyBinds::KeyControl::Mounts_Griffon, "Montar/Descendre de griffon"},
+				{KeyBinds::KeyControl::Mounts_RollerBeetle, "Montar/Descendre du scaraboule"},
+				{KeyBinds::KeyControl::Mounts_Warclaw, "Montar/Descendre de razziafelis"},
+				{KeyBinds::KeyControl::Mounts_Skyscale, "Montar/Descendre de dracailla"},
 				{KeyBinds::KeyControl::Spectators_NearestFixedCamera, "Caméra fixe à proximité"},
 				{KeyBinds::KeyControl::Spectators_NearestPlayer, "Joueur à proximité"},
 				{KeyBinds::KeyControl::Spectators_RedPlayer1, "Joueur de l'équipe rouge 1"},
@@ -634,6 +661,11 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyCode::LeftCmd, "Linke Cmd-Taste"},
 				{KeyCode::Function, "Funktion"},
 				{KeyCode::RightCmd, "Rechte Cmd-Taste"},
+				{KeyCode::Scroll, "Bildlauf"},
+				{KeyCode::Pause, "Pause"},
+				{KeyCode::LeftWin, "Linke Windows-Taste"},
+				{KeyCode::RightWin, "Rechte Windows-Taste"},
+				{KeyCode::Menu, "Menü"}
 			},
 			// keyBinds
 			{
@@ -726,6 +758,14 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Mounts_MountDismount, "Auf-/Absteigen"},
 				{KeyBinds::KeyControl::Mounts_MountAbility1, "Reit-Fähigkeit 1"},
 				{KeyBinds::KeyControl::Mounts_MountAbility2, "Reit-Fähigkeit 2"},
+				{KeyBinds::KeyControl::Mounts_Raptor, "Raptor: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Springer, "Springer: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Skimmer, "Schweberochen: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Jackal, "Schakal: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Griffon, "Greif: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_RollerBeetle, "Rollkäfer: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Warclaw, "Kriegsklaue: Auf-/Absteigen"},
+				{KeyBinds::KeyControl::Mounts_Skyscale, "Himmelsschuppe: Auf-/Absteigen"},
 				{KeyBinds::KeyControl::Spectators_NearestFixedCamera, "Nächste fest montierte Kamera"},
 				{KeyBinds::KeyControl::Spectators_NearestPlayer, "Nächster Spieler"},
 				{KeyBinds::KeyControl::Spectators_RedPlayer1, "Roter Spieler 1"},
@@ -887,6 +927,11 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyCode::LeftCmd, "Cmd izquierdo"},
 				{KeyCode::Function, "Función"},
 				{KeyCode::RightCmd, "Cmd derechno"},
+				{KeyCode::Scroll, "Bloq"},
+				{KeyCode::Pause, "Pausa"},
+				{KeyCode::LeftWin, "Windows derechno"},
+				{KeyCode::RightWin, "Windows izquierdo"},
+				{KeyCode::Menu, "Menú"}
 			},
 			// keyBinds
 			{
@@ -979,6 +1024,14 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Mounts_MountDismount, "Montar/Desmontar"},
 				{KeyBinds::KeyControl::Mounts_MountAbility1, "Habilidad de montura 1"},
 				{KeyBinds::KeyControl::Mounts_MountAbility2, "Habilidad de montura 2"},
+				{KeyBinds::KeyControl::Mounts_Raptor, "Montar/Desmontar del raptor"},
+				{KeyBinds::KeyControl::Mounts_Springer, "Montar/Desmontar del saltarín"},
+				{KeyBinds::KeyControl::Mounts_Skimmer, "Montar/Desmontar de la mantarraya"},
+				{KeyBinds::KeyControl::Mounts_Jackal, "Montar/Desmontar del chacal"},
+				{KeyBinds::KeyControl::Mounts_Griffon, "Montar/Desmontar del grifo"},
+				{KeyBinds::KeyControl::Mounts_RollerBeetle, "Montar/Desmontar del escarabajo"},
+				{KeyBinds::KeyControl::Mounts_Warclaw, "Montar/Desmontar de la garrabélica"},
+				{KeyBinds::KeyControl::Mounts_Skyscale, "Montar/Desmontar de la escamaceleste"},
 				{KeyBinds::KeyControl::Spectators_NearestFixedCamera, "Cámera fija más cercana"},
 				{KeyBinds::KeyControl::Spectators_NearestPlayer, "Jugador más cercano"},
 				{KeyBinds::KeyControl::Spectators_RedPlayer1, "Jugador rojo 1"},
@@ -1047,6 +1100,30 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 		}
 	}
 };
+
+#ifndef NDEBUG
+#define ANONYMOUS_ASSERT3(expr, ctr) namespace assert##ctr { struct StaticAsserter { StaticAsserter() { assert(expr); } } s; }
+#define ANONYMOUS_ASSERT2(expr, ctr) ANONYMOUS_ASSERT3(expr, ctr)
+#define ANONYMOUS_ASSERT(expr) ANONYMOUS_ASSERT2(expr, __COUNTER__)
+#else
+#define ANONYMOUS_ASSERT(expr)
+#endif
+
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::English).Modifier.size() == KeyBinds::MODIFIER_SIZE)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::English).Keys.size() == KeyBinds::KEY_CODES_SIZE_TRANSLATION)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::English).KeyControls.size() == KeyBinds::KEY_CONTROL_SIZE)
+
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::French).Modifier.size() == KeyBinds::MODIFIER_SIZE)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::French).Keys.size() == KeyBinds::KEY_CODES_SIZE_TRANSLATION)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::French).KeyControls.size() == KeyBinds::KEY_CONTROL_SIZE)
+
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::German).Modifier.size() == KeyBinds::MODIFIER_SIZE)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::German).Keys.size() == KeyBinds::KEY_CODES_SIZE_TRANSLATION)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::German).KeyControls.size() == KeyBinds::KEY_CONTROL_SIZE)
+
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::Spanish).Modifier.size() == KeyBinds::MODIFIER_SIZE)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::Spanish).Keys.size() == KeyBinds::KEY_CODES_SIZE_TRANSLATION)
+ANONYMOUS_ASSERT(TRANSLATIONS.at(Language::Spanish).KeyControls.size() == KeyBinds::KEY_CONTROL_SIZE)
 
 static const std::unordered_map<UINT, KeyCode> SCAN_CODE_TO_KEY_CODE = {
 	{0x01, KeyCode::Escape},
@@ -1117,8 +1194,8 @@ static const std::unordered_map<UINT, KeyCode> SCAN_CODE_TO_KEY_CODE = {
 	{0x42, KeyCode::F8},
 	{0x43, KeyCode::F9},
 	{0x44, KeyCode::F10},
-	{0x45, KeyCode::NumLock},
-	// {0x46, KeyCode::SCROLL}, // not available in GW2!
+	{0x45, KeyCode::Pause}, // not available in GW2!
+	{0x46, KeyCode::Scroll}, // not available in GW2!
 	{0x47, KeyCode::_7_NUM},
 	{0x48, KeyCode::_8_NUM},
 	{0x49, KeyCode::_9_NUM},
@@ -1132,14 +1209,16 @@ static const std::unordered_map<UINT, KeyCode> SCAN_CODE_TO_KEY_CODE = {
 	{0x51, KeyCode::_3_NUM},
 	{0x52, KeyCode::_0_NUM},
 	{0x53, KeyCode::DecimalNum},
-	{0x54, KeyCode::Print},
 	{0x56, KeyCode::Backslash},
 	{0x57, KeyCode::F11},
 	{0x58, KeyCode::F12},
 	{0xE01C, KeyCode::EnterNum},
 	{0xE01D, KeyCode::RightCtrl},
 	{0xE035, KeyCode::DivideNum},
+	{0xE037, KeyCode::Print},
 	{0xE038, KeyCode::RightAlt},
+	{0xE045, KeyCode::NumLock},
+	{0xE046, KeyCode::Pause},
 	{0xE047, KeyCode::Home},
 	{0xE048, KeyCode::ArrowUp},
 	{0xE049, KeyCode::Prior},
@@ -1150,10 +1229,9 @@ static const std::unordered_map<UINT, KeyCode> SCAN_CODE_TO_KEY_CODE = {
 	{0xE051, KeyCode::Next},
 	{0xE052, KeyCode::Insert},
 	{0xE053, KeyCode::Delete},
-	//{0xE05B, KeyCode::LEFT_WIN} // not available in GW2!
-	//{0xE05C, KeyCode::RIGHT_WIN}, // not available in GW2!
-	//{0xE05D, KeyCode::APPS}, // not available in GW2!
-	// {0xE11D, KeyCode::PAUSE}, // not available in GW2!
+	{0xE05B, KeyCode::LeftWin}, // not available in GW2!
+	{0xE05C, KeyCode::RightWin}, // not available in GW2!
+	{0xE05D, KeyCode::Menu}, // not available in GW2!
 };
 
 static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
@@ -1225,8 +1303,8 @@ static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
 	{KeyCode::F8, 0x42},
 	{KeyCode::F9, 0x43},
 	{KeyCode::F10, 0x44},
-	{KeyCode::NumLock, 0x45},
-	// {KeyCode::SCROLL, 0x46}, // not available in GW2!
+	{KeyCode::Pause, 0x45}, // not available in GW2!
+	{KeyCode::Scroll, 0x46}, // not available in GW2!
 	{KeyCode::_7_NUM, 0x47},
 	{KeyCode::_8_NUM, 0x48},
 	{KeyCode::_9_NUM, 0x49},
@@ -1240,14 +1318,15 @@ static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
 	{KeyCode::_3_NUM, 0x51},
 	{KeyCode::_0_NUM, 0x52},
 	{KeyCode::DecimalNum, 0x53},
-	{KeyCode::Print, 0x54},
 	{KeyCode::Backslash, 0x56},
 	{KeyCode::F11, 0x57},
 	{KeyCode::F12, 0x58},
 	{KeyCode::EnterNum, 0xE01C},
 	{KeyCode::RightCtrl, 0xE01D},
 	{KeyCode::DivideNum, 0xE035},
+	{KeyCode::Print, 0xE037},
 	{KeyCode::RightAlt, 0xE038},
+	{KeyCode::NumLock, 0xE045},
 	{KeyCode::Home, 0xE047},
 	{KeyCode::ArrowUp, 0xE048},
 	{KeyCode::Prior, 0xE049},
@@ -1258,10 +1337,9 @@ static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
 	{KeyCode::Next, 0xE051},
 	{KeyCode::Insert, 0xE052},
 	{KeyCode::Delete, 0xE053},
-	//{KeyCode::LEFT_WIN, 0xE05B} // not available in GW2!
-	//{KeyCode::RIGHT_WIN, 0xE05C}, // not available in GW2!
-	//{KeyCode::APPS, 0xE05D}, // not available in GW2!
-	// {KeyCode::PAUSE, 0xE11D}, // not available in GW2!
+	{KeyCode::LeftWin, 0xE05B}, // not available in GW2!
+	{KeyCode::RightWin, 0xE05C}, // not available in GW2!
+	{KeyCode::Menu, 0xE05D}, // not available in GW2!
 };
 
 void AddModifier(std::stringstream& pStr, KeyBinds::Modifier pMod, Language pLang)
@@ -1398,4 +1476,9 @@ std::string to_string(KeyBinds::MouseCode pMouseCode, Language pLang)
 	}
 
 	return res.str();
+}
+
+KeyBinds::KeyCode MsvcScanCodeToKeyCode(const UINT pScanCode)
+{
+	return SCAN_CODE_TO_KEY_CODE.at(pScanCode);
 }

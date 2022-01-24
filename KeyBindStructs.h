@@ -189,7 +189,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate5 = 210,
 		Templates_EquipmentTemplate6 = 211
 	};
-	constexpr int32_t KEY_BINDS_SIZE = 161;
+	constexpr int32_t KEY_CONTROL_SIZE = 161;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
@@ -327,9 +327,18 @@ namespace KeyBinds
 		ClearNum = 138,
 		LeftCmd = 139,
 		Function = 140,
-		RightCmd = 141
+		RightCmd = 141,
+
+		// additional, not used by GW2
+		Scroll = 200,
+		Pause = 201,
+		LeftWin = 202,
+		RightWin = 203,
+		Menu = 204
 	};
-	constexpr int32_t KEY_CODES_SIZE = 131;
+	constexpr int32_t KEY_CODES_SIZE_GW2 = 131;
+	constexpr int32_t KEY_CODES_SIZE = 136;
+	constexpr int32_t KEY_CODES_SIZE_TRANSLATION = 87; // Literals (A-Z0-9) and OEM Keys are not in there
 
 	enum class MouseCode : int32_t
 	{
@@ -370,14 +379,15 @@ namespace KeyBinds
 		Modifier_Ctrl = 2,
 		Modifier_Alt = 4
 	};
+	constexpr int32_t MODIFIER_SIZE = 3;
 	typedef int32_t Modifier; // -> enum Modifier_
 
 	// A single KeyBind
 	struct Key
 	{
-		DeviceType DeviceType; /** 0|1|2 (0 = unset, 1 = MouseKey, 2 = KeyboardKey) */
-		int32_t Code; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
-		Modifier Modifier; /** modifier flags (Bit 1 = Shift, Bit 2 = Strg, Bit 3 = Alt) */
+		DeviceType DeviceType = DeviceType::Unset; /** 0|1|2 (0 = unset, 1 = MouseKey, 2 = KeyboardKey) */
+		int32_t Code = 0; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
+		Modifier Modifier = 0; /** modifier flags (Bit 1 = Shift, Bit 2 = Ctrl, Bit 3 = Alt) */
 	};
 
 	struct KeyBind
@@ -392,6 +402,23 @@ namespace KeyBinds
 		uint32_t KeyIndex;
 		Key SingleKey;
 	};
+
+	inline Modifier GetModifier(KeyCode pKeyCode)
+	{
+		if (pKeyCode == KeyCode::LeftShift || pKeyCode == KeyCode::RightShift)
+		{
+			return Modifier_Shift;
+		}
+		if (pKeyCode == KeyCode::LeftAlt || pKeyCode == KeyCode::RightAlt)
+		{
+			return Modifier_Alt;
+		}
+		if (pKeyCode == KeyCode::LeftCtrl || pKeyCode == KeyCode::RightCtrl)
+		{
+			return Modifier_Ctrl;
+		}
+		return 0;
+	}
 }
 
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively

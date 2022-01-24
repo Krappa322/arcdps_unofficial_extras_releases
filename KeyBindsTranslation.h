@@ -19,3 +19,6 @@ std::string to_string(KeyBinds::KeyControl pKeyControl, Language pLang);
 std::string to_string(KeyBinds::Key pKeyBind, Language pLang, HKL pKeyboardLayout, bool pNotSetText = false);
 std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardLayout);
 std::string to_string(KeyBinds::MouseCode pMouseCode, Language pLang);
+
+KeyBinds::KeyCode MsvcScanCodeToKeyCode(UINT pScanCode);
+bool KeyCodeIsSystemKey(KeyBinds::KeyCode key);
