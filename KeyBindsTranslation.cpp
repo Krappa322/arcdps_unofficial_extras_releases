@@ -651,7 +651,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyCode::EnterNum, "ENTER (ZB)"},
 				{KeyCode::MinusNum, "Minus (ZB)"},
 				{KeyCode::ImeKey1, "IME-Taste 1 (auf asiatischen Tastaturen)"},
-				{KeyCode::ImeKey2, "IME-Taste 1 (auf asiatischen Tastaturen)"},
+				{KeyCode::ImeKey2, "IME-Taste 2 (auf asiatischen Tastaturen)"},
 				{KeyCode::RightAlt, "Alt rects"},
 				{KeyCode::RightCtrl, "Strg rechts"},
 				{KeyCode::RightShift, "Rechte Umschalttaste"},
