@@ -424,3 +424,26 @@ namespace KeyBinds
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
 extern "C" __declspec(dllexport) KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
 extern "C" __declspec(dllexport) KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
+
+/**
+ * Magic_enum includes and definitions.
+ * This is completely optional, you don't need any of it.
+ */
+#if __has_include("magic_enum.hpp")
+#include "magic_enum.hpp"
+#elif __has_include("magic_enum/magic_enum.hpp")
+#include "magic_enum/magic_enum.hpp"
+#endif
+
+#ifdef MAGIC_ENUM_SUPPORTED
+static_assert(KeyBinds::KEY_CONTROL_SIZE == magic_enum::enum_count<KeyBinds::KeyControl>());
+static_assert(KeyBinds::KEY_CODES_SIZE == magic_enum::enum_count<KeyBinds::KeyCode>());
+static_assert(KeyBinds::MOUSE_CODES_SIZE == magic_enum::enum_count<KeyBinds::MouseCode>());
+static_assert(KeyBinds::DEVICE_TYPE_SIZE == magic_enum::enum_count<KeyBinds::DeviceType>());
+static_assert(KeyBinds::KEY_CODES_SIZE == magic_enum::enum_count<KeyBinds::KeyCode>());
+
+template <>
+struct magic_enum::customize::enum_range<KeyBinds::Modifier_> {
+  static constexpr bool is_flags = true;
+};
+#endif
