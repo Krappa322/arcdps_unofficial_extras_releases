@@ -1421,9 +1421,11 @@ std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardL
 	}
 
 	using KeyBinds::KeyCode;
-	if ((pKeyCode >= KeyCode::A && pKeyCode <= KeyCode::Z) || (pKeyCode >= KeyCode::_0 && pKeyCode <= KeyCode::_9))
+	if (pKeyCode >= KeyCode::A && pKeyCode <= KeyCode::Z || pKeyCode >= KeyCode::_0 && pKeyCode <= KeyCode::_9)
 	{
-		return std::string(1, static_cast<char>(pKeyCode));
+		UINT scanCode = KEY_CODE_TO_SCAN_CODE.at(pKeyCode);
+		UINT keyExW = MapVirtualKeyExW(scanCode, MAPVK_VSC_TO_VK_EX, pKeyboardLayout);
+		return std::string(1, static_cast<char>(keyExW));
 	}
 	// OEM keys (like Ä, Ö or #)
 	if (pKeyCode == KeyCode::Tilde || pKeyCode == KeyCode::Minus || pKeyCode == KeyCode::Equals || pKeyCode == KeyCode::OpenBracket
@@ -1431,13 +1433,18 @@ std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardL
 		|| pKeyCode == KeyCode::Backslash || pKeyCode == KeyCode::Colon || pKeyCode == KeyCode::Period || pKeyCode == KeyCode::Slash)
 	{
 		UINT scanCode = KEY_CODE_TO_SCAN_CODE.at(pKeyCode);
-		wchar_t shortCutRealNameWstr[32];
 		UINT keyExW = MapVirtualKeyExW(scanCode, MAPVK_VSC_TO_VK_EX, pKeyboardLayout);
-		byte keyState[256] = {};
-		ToUnicodeEx(keyExW, scanCode, keyState, shortCutRealNameWstr, 32, 0, pKeyboardLayout);
-		char shortCutRealName[64];
-		WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, -1, shortCutRealName, sizeof(shortCutRealName), NULL, NULL);
-		return shortCutRealName;
+		wchar_t shortCutRealNameWstr[32];
+		constexpr byte keyState[256]{};
+		int toUnicodeCount = ToUnicodeEx(keyExW, scanCode, keyState, shortCutRealNameWstr, 32, 1 << 2, pKeyboardLayout);
+		if (toUnicodeCount == 2) {
+	        shortCutRealNameWstr[1] = '\0';
+	    }
+
+		int count = WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, sizeof(shortCutRealNameWstr), NULL, 0, NULL, NULL);
+	    std::string str(count, 0);
+	    WideCharToMultiByte(CP_UTF8, 0, shortCutRealNameWstr, -1, &str[0], count, NULL, NULL);
+		return str;
 	}
 
 	// translated by hand!
