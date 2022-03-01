@@ -422,6 +422,8 @@ namespace KeyBinds
 }
 
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
+// These functions will return an empty/default Key, if the key is not set OR if the functionality is disabled cause of missing patterns.
+// You can detect if it is disabled by checking if the `KeyBindChangedCallback` got called on startup.
 extern "C" __declspec(dllexport) KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
 extern "C" __declspec(dllexport) KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
 

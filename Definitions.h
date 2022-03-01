@@ -111,6 +111,9 @@ struct ExtrasSubscriberInfoV1 : ExtrasSubscriberInfoHeader
 	// Called whenever a KeyBind is changed.
 	// By changing it in the ingame UI, by pressing the translation shortcut or with the Presets feature of this plugin.
 	// It is called for every keyBind separately.
+	//
+	// After initialization this is called for every current keybind that exists.
+	// If you want to get a single keybind, at any time you want, call the exported function.
 	KeyBindChangedCallbackSignature KeyBindChangedCallback = nullptr;
 };
 
