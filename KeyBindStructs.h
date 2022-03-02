@@ -93,6 +93,8 @@ namespace KeyBinds
 		Camera_LookBehind = 17,
 		Camera_ToggleActionCamera = 18,
 		Camera_DisableActionCamera = 19,
+
+		// Screenshot Tab
 		Screenshot_Normal = 77,
 		Screenshot_Stereoscopic = 78,
 
@@ -174,6 +176,7 @@ namespace KeyBinds
 		Miscellaneous_ActivateHeldItem = 192,
 		Miscellaneous_ActivateToy = 193,
 		Miscellaneous_ActivateTonic = 194,
+		Miscellaneous_MasterySkill = 219,
 
 		// Templates Tab
 		Templates_BuildTemplate1 = 196,
@@ -182,14 +185,18 @@ namespace KeyBinds
 		Templates_BuildTemplate4 = 199,
 		Templates_BuildTemplate5 = 200,
 		Templates_BuildTemplate6 = 201,
+		Templates_BuildTemplate7 = 202,
+		Templates_BuildTemplate8 = 203,
 		Templates_EquipmentTemplate1 = 206,
 		Templates_EquipmentTemplate2 = 207,
 		Templates_EquipmentTemplate3 = 208,
 		Templates_EquipmentTemplate4 = 209,
 		Templates_EquipmentTemplate5 = 210,
-		Templates_EquipmentTemplate6 = 211
+		Templates_EquipmentTemplate6 = 211,
+		Templates_EquipmentTemplate7 = 212,
+		Templates_EquipmentTemplate8 = 213,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 161;
+	constexpr int32_t KEY_CONTROL_SIZE = 166;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
