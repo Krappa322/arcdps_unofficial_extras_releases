@@ -1499,7 +1499,7 @@ std::string to_string(KeyBinds::MouseCode pMouseCode, Language pLang)
 	}
 	else if (pMouseCode == MouseCode::Mouse_3)
 	{
-		res << 1;
+		res << 3;
 	}
 	else
 	{
