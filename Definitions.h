@@ -78,7 +78,7 @@ struct ExtrasAddonInfo
 
 	// The handle to the unofficial_extras module.
 	// Use this to call the exports of the DLL.
-	void* ExtrasHandle = nullptr;
+	HMODULE ExtrasHandle = nullptr;
 };
 
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
