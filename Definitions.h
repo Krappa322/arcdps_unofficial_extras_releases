@@ -3,7 +3,7 @@
 #include "KeyBindStructs.h"
 
 #include <cstdint>
-#include <ctime>
+#include <Windows.h>
 
 enum class UserRole : uint8_t
 {
