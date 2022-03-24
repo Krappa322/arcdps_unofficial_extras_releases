@@ -396,6 +396,8 @@ namespace KeyBinds
 		DeviceType DeviceType = DeviceType::Unset; /** 0|1|2 (0 = unset, 1 = MouseKey, 2 = KeyboardKey) */
 		int32_t Code = 0; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
 		Modifier Modifier = 0; /** modifier flags (Bit 1 = Shift, Bit 2 = Ctrl, Bit 3 = Alt) */
+
+		bool operator==(const Key&) const = default;
 	};
 
 	struct KeyBind
