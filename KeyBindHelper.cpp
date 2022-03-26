@@ -223,11 +223,17 @@ static const std::unordered_map<KeyCode, UINT> KEY_CODE_TO_SCAN_CODE = {
 	{KeyCode::Menu, 0xE05D}, // not available in GW2!
 };
 
-KeyBinds::KeyCode MsvcScanCodeToKeyCode(const UINT pScanCode) {
-	return SCAN_CODE_TO_KEY_CODE.at(pScanCode);
+std::optional<KeyCode> MsvcScanCodeToKeyCode(const UINT pScanCode) {
+	if (SCAN_CODE_TO_KEY_CODE.contains(pScanCode)) {
+		return SCAN_CODE_TO_KEY_CODE.at(pScanCode);
+	}
+	return std::nullopt;
 }
 
-UINT KeyCodeToMsvcScanCode(const KeyBinds::KeyCode& pScanCode) {
-	return KEY_CODE_TO_SCAN_CODE.at(pScanCode);
+UINT KeyCodeToMsvcScanCode(const KeyCode& pScanCode) {
+	if (KEY_CODE_TO_SCAN_CODE.contains(pScanCode)) {
+		return KEY_CODE_TO_SCAN_CODE.at(pScanCode);
+	}
+	return 0;
 }
 }

@@ -3,9 +3,10 @@
 #include "KeyBindStructs.h"
 
 #include <intsafe.h>
+#include <optional>
 
 namespace KeyBinds {
-KeyBinds::KeyCode MsvcScanCodeToKeyCode(const UINT pScanCode);
+	std::optional<KeyBinds::KeyCode> MsvcScanCodeToKeyCode(const UINT pScanCode);
 
 UINT KeyCodeToMsvcScanCode(const KeyBinds::KeyCode& pScanCode);
 }
