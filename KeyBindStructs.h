@@ -162,6 +162,12 @@ namespace KeyBinds
 		Squad_Object_X = 164,
 		Squad_ClearAllObjectMarkers = 165,
 
+		// Mastery Skills Tab
+		MasterySkills_ActivateMasterySkill = 220,
+		MasterySkills_StartFishing = 221,
+		MasterySkills_SummonSkiff = 222,
+		MasterySkills_SetJadeBotWaypoint = 223,
+
 		// Miscellaneous Tab
 		Miscellaneous_AoELoot = 107,
 		Miscellaneous_Interact = 108,
@@ -177,7 +183,6 @@ namespace KeyBinds
 		Miscellaneous_ActivateHeldItem = 193,
 		Miscellaneous_ActivateToy = 194,
 		Miscellaneous_ActivateTonic = 195,
-		Miscellaneous_MasterySkill = 220,
 
 		// Templates Tab
 		Templates_BuildTemplate1 = 197,
@@ -197,7 +202,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 213,
 		Templates_EquipmentTemplate8 = 214,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 167;
+	constexpr int32_t KEY_CONTROL_SIZE = 170;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
