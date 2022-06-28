@@ -202,7 +202,6 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
 	};
-	
 	constexpr int32_t KEY_CONTROL_SIZE = 170;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
