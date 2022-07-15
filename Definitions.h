@@ -57,6 +57,52 @@ enum class Language : int32_t
 	Chinese = 5
 };
 
+enum class ChannelType : uint8_t
+{
+	Party = 0,
+	Squad = 1,
+	_Reserved = 2,
+	Invalid = 3
+};
+
+struct ChatMessageInfo
+{
+	// A unique identifier for the channel this chat message was sent over. Can be used to, for example, differentiate
+	// between squad messages sent to different squads
+	uint32_t ChannelId;
+
+	// Whether the message is sent in a party or a squad. Note that messages sent to the party chat while in a squad will
+	// have the type ChannelType::Squad
+	ChannelType Type;
+
+	// The subgroup the message was sent to, or UINT8_MAX if it was sent to the entire squad.
+	uint8_t Subgroup;
+
+	uint16_t _Unused1 = 0; // padding
+
+	// Null terminated iso8601 formatted string denoting when this message was received by the server, e.g.
+	// "2022-07-09T11:45:24.888Z". This is the "absolute ordering" for chat messages, however the time can potentially
+	// differ several seconds between the client and server because of latency and clock skew.
+	// The string is only valid for the duration of the call.
+	const char* Timestamp;
+	uint64_t TimestampLength;
+
+	// Null terminated account name of the player that sent the message, including leading ':'.
+	// The string is only valid for the duration of the call.
+	const char* AccountName;
+	uint64_t AccountNameLength;
+
+	// Null terminated character name of the player that sent the message.
+	// The string is only valid for the duration of the call.
+	const char* CharacterName;
+	uint64_t CharacterNameLength;
+
+	// Null terminated string containing the content of the message that was sent.
+	// The string is only valid for the duration of the call.
+	const char* Text;
+	uint64_t TextLength;
+};
+
 struct ExtrasAddonInfo
 {
 	// Version of the api, gets incremented whenever a function signature or behavior changes in a breaking way.
@@ -65,7 +111,7 @@ struct ExtrasAddonInfo
 
 	// Highest known version of the ExtrasSubscriberInfo struct. Also determines the size of the pSubscriberInfo buffer
 	// in the init call (the buffer is only guaranteed to have enough space for known ExtrasSubscriberInfo versions)
-	// Current version is 1.
+	// Current version is 2.
 	uint32_t MaxInfoVersion = 0;
 
 	// Null terminated string version of unofficial_extras addon, gets changed on every release.
@@ -84,6 +130,7 @@ struct ExtrasAddonInfo
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
 typedef void (*LanguageChangedCallbackSignature)(Language pNewLanguage);
 typedef void (*KeyBindChangedCallbackSignature)(KeyBinds::KeyBindChanged pChangedKeyBind);
+typedef void (*ChatMessageCallbackSignature)(const ChatMessageInfo* pChatMessage);
 struct ExtrasSubscriberInfoHeader
 {
 	// The version of the following info struct
@@ -115,6 +162,13 @@ struct ExtrasSubscriberInfoV1 : ExtrasSubscriberInfoHeader
 	// After initialization this is called for every current keybind that exists.
 	// If you want to get a single keybind, at any time you want, call the exported function.
 	KeyBindChangedCallbackSignature KeyBindChangedCallback = nullptr;
+};
+
+// InfoVersion = 2
+struct ExtrasSubscriberInfoV2 : ExtrasSubscriberInfoV1
+{
+	// Called whenever a chat message is sent in your party/squad
+	ChatMessageCallbackSignature ChatMessageCallback = nullptr;
 };
 
 // This function must be exported by subscriber addons as 'arcdps_unofficial_extras_subscriber_init'.
