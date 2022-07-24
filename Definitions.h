@@ -78,7 +78,11 @@ struct ChatMessageInfo
 	// The subgroup the message was sent to, or UINT8_MAX if it was sent to the entire squad.
 	uint8_t Subgroup;
 
-	uint16_t _Unused1 = 0; // padding
+	// The lowest bit of this field will be set to 1 if the message is a broadcast, and 0 if it is not a broadcast. The
+	// upper bits of this field may be used in a later version and MUST NOT be interpreted
+	uint8_t IsBroadcast;
+
+	uint8_t _Unused1 = 0; // padding
 
 	// Null terminated iso8601 formatted string denoting when this message was received by the server, e.g.
 	// "2022-07-09T11:45:24.888Z". This is the "absolute ordering" for chat messages, however the time can potentially
