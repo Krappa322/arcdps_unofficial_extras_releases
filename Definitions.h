@@ -178,9 +178,9 @@ struct ExtrasSubscriberInfoV2 : ExtrasSubscriberInfoV1
 // the callee was written). The callee MUST verify that pExtrasInfo->MaxInfoVersion is equal to or higher than the
 // ExtrasSubscriberInfo struct version it intends to use (to ensure that the buffer has enough room for the info
 // struct). The callee MAY use the pExtrasInfo->MaxInfoVersion field to dynamically determine which info version to use,
-// in order to gain backwards compatibility. If any of these verifications fail, the callee MUST return without
+// in order to gain backwards compatibility. If any of these verifications fail, the callee SHOULD return without
 // modifying the buffer pointed to by pSubscriberInfo.
 //
-// The callee SHOULD populate the buffer pointed to by pSubscriberInfo with one of the ExtrasSubscriberInfo structs
+// The callee MUST populate the buffer pointed to by pSubscriberInfo with one of the ExtrasSubscriberInfo structs
 // above. If initialization fails, the callee SHOULD leave the buffer untouched to indicate initialization failure
 typedef void (*ExtrasSubscriberInitSignature)(const ExtrasAddonInfo* pExtrasInfo, void* pSubscriberInfo);
