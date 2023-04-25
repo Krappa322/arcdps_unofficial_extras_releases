@@ -42,7 +42,7 @@ target_sources(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
 
 install(TARGETS ${PROJECT_NAME}
-	EXPORT ArcdpsUnofficialExtrasExport 
+	EXPORT ArcdpsUnofficialExtrasTargets
 	FILE_SET HEADERS
 	DESTINATION include/${PROJECT_NAME}
 )
@@ -56,7 +56,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArcdpsUnofficialExtrasConfig.cmake
 	DESTINATION share/${PROJECT_NAME}
 )
 
-install(EXPORT ArcdpsUnofficialExtrasExport
-	FILE ArcdpsUnofficialExtrasExport.cmake
+install(EXPORT ArcdpsUnofficialExtrasTargets
+	FILE ArcdpsUnofficialExtrasTargets.cmake
 	DESTINATION share/${PROJECT_NAME}
 )
