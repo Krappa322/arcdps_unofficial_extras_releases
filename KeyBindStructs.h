@@ -76,6 +76,7 @@ namespace KeyBinds
 		UI_PvPPanel = 73,
 		UI_PvPBuild = 75,
 		UI_Scoreboard = 50,
+		UI_WizardsVaultDialog = 209,
 		UI_InformationDialog = 51,
 		UI_Show_HideChat = 70,
 		UI_ChatCommand = 52,
@@ -202,7 +203,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 170;
+	constexpr int32_t KEY_CONTROL_SIZE = 171;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
