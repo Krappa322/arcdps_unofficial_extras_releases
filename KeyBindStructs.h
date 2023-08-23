@@ -168,6 +168,8 @@ namespace KeyBinds
 		MasterySkills_StartFishing = 204,
 		MasterySkills_SummonSkiff = 205,
 		MasterySkills_SetJadeBotWaypoint = 206,
+		MasterySkills_ScanForRift = 207,
+		MasterySkills_SkyscaleLeap = 208,
 
 		// Miscellaneous Tab
 		Miscellaneous_AoELoot = 74,
@@ -203,7 +205,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 171;
+	constexpr int32_t KEY_CONTROL_SIZE = 173;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
