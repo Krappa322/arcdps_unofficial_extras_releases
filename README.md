@@ -17,7 +17,7 @@ This addon does nothing on its own. Instead, it provides other installed arcdps 
 ## Installation
 Requires [ArcDPS](https://www.deltaconnected.com/arcdps/).
 
-Download the latest [arcdps_unofficial_extras.dll](https://github.com/Krappa322/arcdps_unofficial_extras_releases/releases/latest) from the Releases page. Drag and drop arcdps_unofficial_extras.dll into the bin64\ directory (same directory as where arcdps d3d9.dll is)
+Download the latest [arcdps_unofficial_extras.dll](https://github.com/Krappa322/arcdps_unofficial_extras_releases/releases/latest) from the Releases page. Drag and drop arcdps_unofficial_extras.dll into the gw2 directory (same directory as where arcdps d3d11.dll is)
 
 ## Usage
 If installed correctly, you should see an "Unoffical Extras Options" menu where auto-updating can be configured. Other addons that integrate with unofficial_extras should automatically start working, no additional configuration required. The addon does nothing on its own. 
