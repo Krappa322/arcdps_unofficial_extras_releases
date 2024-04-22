@@ -1,9 +1,20 @@
 # ArcDPS Unofficial Extras
-This addon does nothing on its own. Instead, it provides other installed arcdps addons with additional information arcdps does not provide, namely:
-- When players leave or join the party/squad
-- What role a player has in the squad
-- What subgroup a player is in
-- If the player is ready or not (in a squad ready check)
+This program does little on its own. It is mainly aimed to provide other plugins with additional information.
+
+What it does directly:
+- Lock mouse while camera is moving (hidden when rightclick)
+- Lock mouse to the game window
+- Presets for graphic settings that allow switching between them fast
+- Save/Load Keybinds by Profession (previously part of arcdps)
+- Save/Load Keybinds by Elite (previously part of arcdps)
+
+What it provides for other addons:
+- Information about the squad (join/leave party/squad, role, subgroup, read-state)
+- Event when the language is changed
+- Events and exports to read out keybinds
+- Utilities to translate keybinds
+- Utilities to convert to/from msvc to gw2 internal keybinds
+- Events when Chat messages are sent/received
 
 ## Disclaimer
 **arcdps_unofficial_extras is not affiliated with or endorsed by deltaconnected or arcdps**
@@ -43,3 +54,7 @@ This project makes use of the following third party libraries (they are all stat
 [JSON for Modern C++](https://github.com/nlohmann/json), licensed under the MIT license.
 ### spdlog
 [spdlog](https://github.com/gabime/spdlog), licensed under the MIT license.
+### fmt
+[fmt](https://github.com/fmtlib/fmt), licensed under the MIT license.
+### magic-enum
+[magic-enum](https://github.com/Neargye/magic_enum), licensed under the MIT license.
