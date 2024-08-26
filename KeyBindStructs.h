@@ -186,6 +186,7 @@ namespace KeyBinds
 		Miscellaneous_ActivateHeldItem = 165,
 		Miscellaneous_ActivateToy = 166,
 		Miscellaneous_ActivateTonic = 167,
+		Miscellaneous_DecorateModeToggle = 210,
 
 		// Templates Tab
 		Templates_BuildTemplate1 = 171,
@@ -205,7 +206,7 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 173;
+	constexpr int32_t KEY_CONTROL_SIZE = 174;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
