@@ -198,6 +198,7 @@ namespace KeyBinds
 		Templates_BuildTemplate6 = 176,
 		Templates_BuildTemplate7 = 177,
 		Templates_BuildTemplate8 = 178,
+		Templates_BuildTemplate9 = 179,
 		Templates_EquipmentTemplate1 = 182,
 		Templates_EquipmentTemplate2 = 183,
 		Templates_EquipmentTemplate3 = 184,
@@ -206,8 +207,9 @@ namespace KeyBinds
 		Templates_EquipmentTemplate6 = 187,
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
+		Templates_EquipmentTemplate9 = 190,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 175;
+	constexpr int32_t KEY_CONTROL_SIZE = 177;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
