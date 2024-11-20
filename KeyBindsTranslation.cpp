@@ -310,6 +310,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_BuildTemplate6, (const char*)u8"Build Template 6"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate7, (const char*)u8"Build Template 7"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate8, (const char*)u8"Build Template 8"},
+				{KeyBinds::KeyControl::Templates_BuildTemplate9, (const char*)u8"Build Template 9"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate1, (const char*)u8"Equipment Template 1"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate2, (const char*)u8"Equipment Template 2"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate3, (const char*)u8"Equipment Template 3"},
@@ -318,6 +319,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate6, (const char*)u8"Equipment Template 6"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Equipment Template 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Equipment Template 8"},
+				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Equipment Template 9"},
 			}
 		}
 	},
@@ -591,6 +593,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_BuildTemplate6, (const char*)u8"Modéle d'archétype 6"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate7, (const char*)u8"Modéle d'archétype 7"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate8, (const char*)u8"Modéle d'archétype 8"},
+				{KeyBinds::KeyControl::Templates_BuildTemplate9, (const char*)u8"Modéle d'archétype 9"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate1, (const char*)u8"Modéle d'équipement 1"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate2, (const char*)u8"Modéle d'équipement 2"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate3, (const char*)u8"Modéle d'équipement 3"},
@@ -599,6 +602,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate6, (const char*)u8"Modéle d'équipement 6"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Modéle d'équipement 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Modéle d'équipement 8"},
+				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Modéle d'équipement 9"},
 			}
 		}
 	},
@@ -872,6 +876,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_BuildTemplate6, (const char*)u8"Build-Vorlage 6"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate7, (const char*)u8"Build-Vorlage 7"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate8, (const char*)u8"Build-Vorlage 8"},
+				{KeyBinds::KeyControl::Templates_BuildTemplate9, (const char*)u8"Build-Vorlage 9"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate1, (const char*)u8"Ausrüstungs-Vorlage 1"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate2, (const char*)u8"Ausrüstungs-Vorlage 2"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate3, (const char*)u8"Ausrüstungs-Vorlage 3"},
@@ -880,6 +885,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate6, (const char*)u8"Ausrüstungs-Vorlage 6"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Ausrüstungs-Vorlage 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Ausrüstungs-Vorlage 8"},
+				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Ausrüstungs-Vorlage 9"},
 			}
 		}
 	},
@@ -1153,6 +1159,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_BuildTemplate6, (const char*)u8"Plantilla de ajustes 6"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate7, (const char*)u8"Plantilla de ajustes 7"},
 				{KeyBinds::KeyControl::Templates_BuildTemplate8, (const char*)u8"Plantilla de ajustes 8"},
+				{KeyBinds::KeyControl::Templates_BuildTemplate9, (const char*)u8"Plantilla de ajustes 9"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate1, (const char*)u8"Plantilla de equipamiento 1"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate2, (const char*)u8"Plantilla de equipamiento 2"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate3, (const char*)u8"Plantilla de equipamiento 3"},
@@ -1161,6 +1168,7 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate6, (const char*)u8"Plantilla de equipamiento 6"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Plantilla de equipamiento 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Plantilla de equipamiento 8"},
+				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Plantilla de equipamiento 9"},
 			}
 		}
 	}
