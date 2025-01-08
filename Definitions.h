@@ -65,7 +65,7 @@ enum class ChannelType : uint8_t
 	Invalid = 3
 };
 
-struct ChatMessageInfo
+struct SquadMessageInfo
 {
 	// A unique identifier for the channel this chat message was sent over. Can be used to, for example, differentiate
 	// between squad messages sent to different squads
@@ -107,6 +107,19 @@ struct ChatMessageInfo
 	uint64_t TextLength;
 };
 
+struct NpcMessageInfo
+{
+	// Null terminated character name of the NPC or the player character.
+	// The string is only valid for the duration of the call.
+	const char* CharacterName;
+	uint64_t CharacterNameLength;
+
+	// Null terminated string of the message said by an npc or the user character.
+	// The string is only valid for the duration of the call.
+	const char* Message;
+	uint64_t MessageLength;
+};
+
 struct ExtrasAddonInfo
 {
 	// Version of the api, gets incremented whenever a function signature or behavior changes in a breaking way.
@@ -115,7 +128,7 @@ struct ExtrasAddonInfo
 
 	// Highest known version of the ExtrasSubscriberInfo struct. Also determines the size of the pSubscriberInfo buffer
 	// in the init call (the buffer is only guaranteed to have enough space for known ExtrasSubscriberInfo versions)
-	// Current version is 2.
+	// Current version is 3.
 	uint32_t MaxInfoVersion = 0;
 
 	// Null terminated string version of unofficial_extras addon, gets changed on every release.
@@ -131,10 +144,28 @@ struct ExtrasAddonInfo
 	HMODULE ExtrasHandle = nullptr;
 };
 
+enum ChatMessageType
+{
+	// Called for party/squad messages. 
+	Squad = 0,
+
+	// Called for NPC Channel (selectable in ingame-chat as "NPC")
+	NPC = 1,
+};
+
+union ChatMessageInfo2
+{
+	// party/squad messages
+	SquadMessageInfo* SquadMessage;
+	NpcMessageInfo* NpcMessage;
+};
+
 typedef void (*SquadUpdateCallbackSignature)(const UserInfo* pUpdatedUsers, uint64_t pUpdatedUsersCount);
 typedef void (*LanguageChangedCallbackSignature)(Language pNewLanguage);
 typedef void (*KeyBindChangedCallbackSignature)(KeyBinds::KeyBindChanged pChangedKeyBind);
-typedef void (*ChatMessageCallbackSignature)(const ChatMessageInfo* pChatMessage);
+typedef void (*ChatMessageCallbackSignature)(const SquadMessageInfo* pChatMessage);
+typedef void (*ChatMessageInfoSignature2)(ChatMessageType pMessageType, ChatMessageInfo2 pChatMessage);
+
 struct ExtrasSubscriberInfoHeader
 {
 	// The version of the following info struct
@@ -173,6 +204,14 @@ struct ExtrasSubscriberInfoV2 : ExtrasSubscriberInfoV1
 {
 	// Called whenever a chat message is sent in your party/squad
 	ChatMessageCallbackSignature ChatMessageCallback = nullptr;
+};
+
+// InfoVersion = 3
+struct ExtrasSubscriberInfoV3 : ExtrasSubscriberInfoV2
+{
+	// Called on different chat messages.
+	// See `ChatMessageType` for the available chats.
+	ChatMessageInfoSignature2 ChatMessageCallback2 = nullptr;
 };
 
 // This function must be exported by subscriber addons as 'arcdps_unofficial_extras_subscriber_init'.
