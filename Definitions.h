@@ -118,6 +118,10 @@ struct NpcMessageInfo
 	// The string is only valid for the duration of the call.
 	const char* Message;
 	uint64_t MessageLength;
+
+	// Time since epoch in nanoseconds.
+	// This can be used to sort messages, when they are out of order.
+	uint64_t Timestamp;
 };
 
 struct ExtrasAddonInfo
