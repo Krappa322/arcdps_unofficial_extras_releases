@@ -38,7 +38,9 @@ target_sources(${PROJECT_NAME}
 		KeyBindsTranslation.cpp
 )
 
-target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+	target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
+endif ()
 
 if (ARCPDS_UNOFFICIAL_EXTRAS_MAGIC_ENUM AND NOT ARCPDS_UNOFFICIAL_EXTRAS_CPP_11)
 	include(cmake/magic-enum-dep.cmake)
@@ -61,7 +63,7 @@ configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
 	${CMAKE_CURRENT_BINARY_DIR}/ArcdpsUnofficialExtrasConfig.cmake
 	INSTALL_DESTINATION share/${PROJECT_NAME}
 )
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArcdpsUnofficialExtrasConfig.cmake 
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArcdpsUnofficialExtrasConfig.cmake
 	DESTINATION share/${PROJECT_NAME}
 )
 
