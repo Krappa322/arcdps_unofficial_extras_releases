@@ -1,8 +1,19 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
   "name": "arcdps-unofficial-extras",
-  "version-string": "1.12.2",
-  "dependencies": [
-	  "magic-enum"
-  ]
+  "version-string": "1.27.2",
+  "default-features": [
+    "magic-enum"
+  ],
+  "features": {
+    "magic-enum": {
+      "description": "add checks and template specializations for magic-enum.",
+      "dependencies": [
+        "magic-enum"
+      ]
+    },
+    "cpp11": {
+      "dependencies": "activate compatibility for C++11, will disable magic-enum"
+    }
+  }
 }

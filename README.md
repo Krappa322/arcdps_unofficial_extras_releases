@@ -7,6 +7,7 @@ What it does directly:
 - Presets for graphic settings that allow switching between them fast
 - Save/Load Keybinds by Profession (previously part of arcdps)
 - Save/Load Keybinds by Elite (previously part of arcdps)
+- Options to hide top-right widgets (previously part of arcdps)
 
 What it provides for other addons:
 - Information about the squad (join/leave party/squad, role, subgroup, read-state)
@@ -41,6 +42,7 @@ Please report issues and requests using the github issue tracker, or on the [Eli
 
 ## For Developers
 Check out the Definitions.h header file included in every release, it should contain all the information needed in order to integrate your addon with unofficial_extras.
+This project requires a C++17 compiler. 
 
 ## Copyright Notice
 This project makes use of the following third party libraries (they are all statically linked):

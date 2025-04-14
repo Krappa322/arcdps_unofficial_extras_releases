@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.23)
 
+option(ARCPDS_UNOFFICIAL_EXTRAS_MAGIC_ENUM "Compile with magic-enum as dependency" ON)
+option(ARCPDS_UNOFFICIAL_EXTRAS_CPP_11 "Activate compatibility for C++11, will disable magic-enum" OFF)
+
 project(ArcdpsUnofficialExtras CXX)
-set(CMAKE_CXX_STANDARD 20)
 
 add_definitions(-DUNICODE)
 add_definitions(-D_UNICODE)
-
-find_package(magic_enum CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
@@ -21,7 +21,6 @@ target_include_directories(
 add_compile_definitions(
 	NOMINMAX
 	MAGIC_ENUM_RANGE_MAX=256
-	IMGUI_DEFINE_MATH_OPERATORS
 )
 
 target_sources(${PROJECT_NAME} INTERFACE
@@ -39,7 +38,14 @@ target_sources(${PROJECT_NAME}
 		KeyBindsTranslation.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE magic_enum::magic_enum)
+if (ARCPDS_UNOFFICIAL_EXTRAS_MAGIC_ENUM AND NOT ARCPDS_UNOFFICIAL_EXTRAS_CPP_11)
+	include(cmake/magic-enum-dep.cmake)
+endif ()
+if (ARCPDS_UNOFFICIAL_EXTRAS_CPP_11)
+	target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
+else ()
+	target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+endif ()
 
 install(TARGETS ${PROJECT_NAME}
 	EXPORT ArcdpsUnofficialExtrasTargets

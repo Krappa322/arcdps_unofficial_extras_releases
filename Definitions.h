@@ -18,7 +18,8 @@ enum class UserRole : uint8_t
 
 struct UserInfo
 {
-	const char* AccountName; // Null terminated account name, including leading ':'. Only valid for the duration of the call
+	// Null terminated account name, including leading ':'. Only valid for the duration of the call
+	const char* AccountName;
 
 	// Unix timestamp when the user joined the squad (or 0 if time could not be determined)
 	__time64_t JoinTime;

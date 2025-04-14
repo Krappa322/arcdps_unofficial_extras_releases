@@ -1,5 +1,11 @@
 #pragma once
 
+#ifdef UNOFFICIAL_EXTRAS_EXPORTS
+#define UNOFFICIAL_EXTRAS_API __declspec(dllexport)
+#else
+#define UNOFFICIAL_EXTRAS_API __declspec(dllimport)
+#endif
+
 #include <cstdint>
 
 namespace KeyBinds
@@ -409,7 +415,9 @@ namespace KeyBinds
 		int32_t Code = 0; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
 		Modifier Modifier = 0; /** modifier flags (Bit 1 = Shift, Bit 2 = Ctrl, Bit 3 = Alt) */
 
-		bool operator==(const Key&) const = default;
+		bool operator==(const Key& other) const {
+			return other.DeviceType == DeviceType && other.Code == Code && other.Modifier == Modifier;
+		}
 	};
 
 	struct KeyBind
@@ -446,8 +454,8 @@ namespace KeyBinds
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
 // These functions will return an empty/default Key, if the key is not set OR if the functionality is disabled cause of missing patterns.
 // You can detect if it is disabled by checking if the `KeyBindChangedCallback` got called on startup.
-extern "C" __declspec(dllexport) KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
-extern "C" __declspec(dllexport) KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
+extern "C" UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
+extern "C" UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
 
 /**
  * Magic_enum includes and definitions.

@@ -1224,7 +1224,8 @@ std::string to_string(KeyBinds::KeyControl pKeyControl, Language pLang)
 	}
 
 	const auto& keyMap = TRANSLATIONS.at(pLang).KeyControls;
-	if (const auto& trans = keyMap.find(pKeyControl); trans != keyMap.end())
+	const auto& trans = keyMap.find(pKeyControl);
+	if (trans != keyMap.end())
 	{
 		return trans->second;
 	}
@@ -1305,7 +1306,8 @@ std::string to_string(KeyBinds::KeyCode pKeyCode, Language pLang, HKL pKeyboardL
 
 	// translated by hand!
 	const auto& keysMap = TRANSLATIONS.at(pLang).Keys;
-	if (const auto& trans = keysMap.find(pKeyCode); trans != keysMap.end())
+	const auto& trans = keysMap.find(pKeyCode);
+	if (trans != keysMap.end())
 	{
 		return trans->second;
 	}
