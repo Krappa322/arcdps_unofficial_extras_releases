@@ -38,9 +38,12 @@ target_sources(${PROJECT_NAME}
 		KeyBindsTranslation.cpp
 )
 
+target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
+
 if (ARCPDS_UNOFFICIAL_EXTRAS_MAGIC_ENUM AND NOT ARCPDS_UNOFFICIAL_EXTRAS_CPP_11)
 	include(cmake/magic-enum-dep.cmake)
 endif ()
+
 if (ARCPDS_UNOFFICIAL_EXTRAS_CPP_11)
 	target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
 else ()
