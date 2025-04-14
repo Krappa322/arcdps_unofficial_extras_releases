@@ -13,7 +13,7 @@
       ]
     },
     "cpp11": {
-      "dependencies": "activate compatibility for C++11, will disable magic-enum"
+      "description": "activate compatibility for C++11, will disable magic-enum"
     }
   }
 }
