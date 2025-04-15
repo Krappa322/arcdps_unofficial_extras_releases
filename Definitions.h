@@ -16,6 +16,14 @@ enum class UserRole : uint8_t
 	Invalid = 6 // Internal only
 };
 
+enum class ChannelType : uint8_t
+{
+	Party = 0,
+	Squad = 1,
+	_Reserved = 2,
+	Invalid = 3
+};
+
 struct UserInfo
 {
 	// Null terminated account name, including leading ':'. Only valid for the duration of the call
@@ -36,15 +44,27 @@ struct UserInfo
 	// sent for each user where their ReadyStatus == false)
 	bool ReadyStatus;
 
-	uint8_t _Unused1 = 0; // padding
+	// Whether the player is in a party or a squad. Use this to determine what Subgroup == 0 means.
+	// Since: InfoVersionV4. Previous versions have this always set to 0.
+	ChannelType GroupType;
 	uint32_t _Unused2 = 0; // padding
 
-	UserInfo(const char* pAccountName, __time64_t pJoinTime, UserRole pRole, uint8_t pSubgroup, bool pReadyStatus)
+	UserInfo()
+		: AccountName(nullptr)
+		, JoinTime(0)
+		, Role(UserRole::Invalid)
+		, Subgroup(0)
+		, ReadyStatus(false)
+		, GroupType(ChannelType::Invalid)
+	{}
+
+	UserInfo(const char* pAccountName, __time64_t pJoinTime, UserRole pRole, uint8_t pSubgroup, bool pReadyStatus, ChannelType pType)
 		: AccountName{pAccountName}
 		, JoinTime{pJoinTime}
 		, Role{pRole}
 		, Subgroup{pSubgroup}
 		, ReadyStatus{pReadyStatus}
+		, GroupType{pType}
 	{
 	}
 };
@@ -56,14 +76,6 @@ enum class Language : int32_t
 	German = 3,
 	Spanish = 4,
 	Chinese = 5
-};
-
-enum class ChannelType : uint8_t
-{
-	Party = 0,
-	Squad = 1,
-	_Reserved = 2,
-	Invalid = 3
 };
 
 struct SquadMessageInfo
@@ -133,7 +145,7 @@ struct ExtrasAddonInfo
 
 	// Highest known version of the ExtrasSubscriberInfo struct. Also determines the size of the pSubscriberInfo buffer
 	// in the init call (the buffer is only guaranteed to have enough space for known ExtrasSubscriberInfo versions)
-	// Current version is 3.
+	// Current version is 4.
 	uint32_t MaxInfoVersion = 0;
 
 	// Null terminated string version of unofficial_extras addon, gets changed on every release.
@@ -218,6 +230,10 @@ struct ExtrasSubscriberInfoV3 : ExtrasSubscriberInfoV2
 	// See `ChatMessageType` for the available chats.
 	ChatMessageInfoSignature2 ChatMessageCallback2 = nullptr;
 };
+
+// InfoVersion = 4
+// No new fields added. UserInfo struct has an additional field.
+typedef ExtrasSubscriberInfoV3 ExtrasSubscriberInfoV4;
 
 // This function must be exported by subscriber addons as 'arcdps_unofficial_extras_subscriber_init'.
 // It's called once at startup. Can be called before or after arcdps calls mod_init.
