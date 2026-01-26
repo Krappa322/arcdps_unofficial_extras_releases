@@ -12,15 +12,17 @@ add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_include_directories(
-    ${PROJECT_NAME}
-    PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+	${PROJECT_NAME}
+	PUBLIC
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+		$<INSTALL_INTERFACE:include/${PROJECT_NAME}>
 )
 
-add_compile_definitions(
-	NOMINMAX
-	MAGIC_ENUM_RANGE_MAX=256
+target_compile_definitions(
+	${PROJECT_NAME}
+	PUBLIC
+		NOMINMAX
+		MAGIC_ENUM_RANGE_MAX=256
 )
 
 target_sources(${PROJECT_NAME} INTERFACE
