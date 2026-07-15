@@ -320,6 +320,15 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Equipment Template 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Equipment Template 8"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Equipment Template 9"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate1, (const char*)u8"Fashion Template 1"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate2, (const char*)u8"Fashion Template 2"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate3, (const char*)u8"Fashion Template 3"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate4, (const char*)u8"Fashion Template 4"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate5, (const char*)u8"Fashion Template 5"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate6, (const char*)u8"Fashion Template 6"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate7, (const char*)u8"Fashion Template 7"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate8, (const char*)u8"Fashion Template 8"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate9, (const char*)u8"Fashion Template 9"},
 			}
 		}
 	},
@@ -603,6 +612,15 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Modéle d'équipement 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Modéle d'équipement 8"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Modéle d'équipement 9"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate1, (const char*)u8"Modéle de style 1"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate2, (const char*)u8"Modéle de style 2"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate3, (const char*)u8"Modéle de style 3"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate4, (const char*)u8"Modéle de style 4"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate5, (const char*)u8"Modéle de style 5"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate6, (const char*)u8"Modéle de style 6"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate7, (const char*)u8"Modéle de style 7"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate8, (const char*)u8"Modéle de style 8"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate9, (const char*)u8"Modéle de style 9"},
 			}
 		}
 	},
@@ -886,6 +904,15 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Ausrüstungs-Vorlage 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Ausrüstungs-Vorlage 8"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Ausrüstungs-Vorlage 9"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate1, (const char*)u8"Mode-Vorlage 1"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate2, (const char*)u8"Mode-Vorlage 2"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate3, (const char*)u8"Mode-Vorlage 3"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate4, (const char*)u8"Mode-Vorlage 4"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate5, (const char*)u8"Mode-Vorlage 5"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate6, (const char*)u8"Mode-Vorlage 6"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate7, (const char*)u8"Mode-Vorlage 7"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate8, (const char*)u8"Mode-Vorlage 8"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate9, (const char*)u8"Mode-Vorlage 9"},
 			}
 		}
 	},
@@ -1169,6 +1196,15 @@ static const std::unordered_map<Language, Translation> TRANSLATIONS = {
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate7, (const char*)u8"Plantilla de equipamiento 7"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate8, (const char*)u8"Plantilla de equipamiento 8"},
 				{KeyBinds::KeyControl::Templates_EquipmentTemplate9, (const char*)u8"Plantilla de equipamiento 9"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate1, (const char*)u8"Plantilla de moda 1"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate2, (const char*)u8"Plantilla de moda 2"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate3, (const char*)u8"Plantilla de moda 3"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate4, (const char*)u8"Plantilla de moda 4"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate5, (const char*)u8"Plantilla de moda 5"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate6, (const char*)u8"Plantilla de moda 6"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate7, (const char*)u8"Plantilla de moda 7"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate8, (const char*)u8"Plantilla de moda 8"},
+				{KeyBinds::KeyControl::Templates_FashionTemplate9, (const char*)u8"Plantilla de moda 9"},
 			}
 		}
 	}

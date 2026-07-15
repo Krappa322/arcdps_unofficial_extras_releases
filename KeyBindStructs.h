@@ -214,8 +214,17 @@ namespace KeyBinds
 		Templates_EquipmentTemplate7 = 188,
 		Templates_EquipmentTemplate8 = 189,
 		Templates_EquipmentTemplate9 = 190,
+		Templates_FashionTemplate1 = 212,
+		Templates_FashionTemplate2 = 213,
+		Templates_FashionTemplate3 = 214,
+		Templates_FashionTemplate4 = 215,
+		Templates_FashionTemplate5 = 216,
+		Templates_FashionTemplate6 = 217,
+		Templates_FashionTemplate7 = 218,
+		Templates_FashionTemplate8 = 219,
+		Templates_FashionTemplate9 = 220,
 	};
-	constexpr int32_t KEY_CONTROL_SIZE = 177;
+	constexpr int32_t KEY_CONTROL_SIZE = 186;
 
 	// Some of them are not usable (like F13-F35 or PRINT)
 	// These are custom scan codes.
