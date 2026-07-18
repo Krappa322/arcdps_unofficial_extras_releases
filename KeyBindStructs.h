@@ -424,6 +424,10 @@ namespace KeyBinds
 		int32_t Code = 0; /** depends on `deviceType`. MouseCode or KeyCode depending on `DeviceType` */
 		Modifier Modifier = 0; /** modifier flags (Bit 1 = Shift, Bit 2 = Ctrl, Bit 3 = Alt) */
 
+		Key() = default;
+                explicit Key(MouseCode code, KeyBinds::Modifier modifier = 0) : DeviceType(DeviceType::Mouse), Code(static_cast<int32_t>(code)), Modifier(modifier) {}
+		explicit Key(KeyCode code, KeyBinds::Modifier modifier = 0) : DeviceType(DeviceType::Keyboard), Code(static_cast<int32_t>(code)), Modifier(modifier) {}
+
 		bool operator==(const Key& other) const {
 			return other.DeviceType == DeviceType && other.Code == Code && other.Modifier == Modifier;
 		}
