@@ -1,0 +1,21 @@
+name: Publish to vcpkg registry
+
+on:
+  push:
+    branches: [master]
+    paths: ['vcpkg.json']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to push the git tag
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2  # action needs HEAD~1 to detect version change
+
+      - uses: Zinn-o-Matics/vcpkg-registry/.github/actions/publish-port@main
+        with:
+          registry-pat: ${{ secrets.REGISTRY_PAT }}
