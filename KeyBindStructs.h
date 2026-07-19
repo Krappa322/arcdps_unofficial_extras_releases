@@ -426,7 +426,7 @@ namespace KeyBinds
 
 #ifdef __cplusplus
 		Key() = default;
-                explicit Key(MouseCode code, KeyBinds::Modifier modifier = 0) : DeviceType(DeviceType::Mouse), Code(static_cast<int32_t>(code)), Modifier(modifier) {}
+		explicit Key(MouseCode code, KeyBinds::Modifier modifier = 0) : DeviceType(DeviceType::Mouse), Code(static_cast<int32_t>(code)), Modifier(modifier) {}
 		explicit Key(KeyCode code, KeyBinds::Modifier modifier = 0) : DeviceType(DeviceType::Keyboard), Code(static_cast<int32_t>(code)), Modifier(modifier) {}
 #endif
 
