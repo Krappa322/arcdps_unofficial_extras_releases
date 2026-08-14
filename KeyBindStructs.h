@@ -466,11 +466,16 @@ namespace KeyBinds
 	}
 }
 
+// Disable `warning C4190: 'get_key' has C-linkage specified, but returns 'KeyBinds::Key' which is incompatible with C`
+// The Key struct is compatible with C, even with the constructors, so this warning is not needed.
+#pragma warning(push)
+#pragma warning(disable: 4190)
 // pKeyIndex is either 0 or 1, notating the primary and secondary key for the keybind respectively
 // These functions will return an empty/default Key, if the key is not set OR if the functionality is disabled cause of missing patterns.
 // You can detect if it is disabled by checking if the `KeyBindChangedCallback` got called on startup.
 extern "C" UNOFFICIAL_EXTRAS_API KeyBinds::Key get_key(KeyBinds::KeyControl pControl, uint32_t pKeyIndex = 0);
 extern "C" UNOFFICIAL_EXTRAS_API KeyBinds::KeyBind get_key_bind(KeyBinds::KeyControl pControl);
+#pragma warning(pop)
 
 /**
  * Magic_enum includes and definitions.
